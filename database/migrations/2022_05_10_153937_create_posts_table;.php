@@ -20,7 +20,9 @@ return new class extends Migration
             $table->string('company');
             $table->string('location');
             $table->string('website');
-            $table->timestamp('created_at')->nullable();
+            $table->text('desc');
+            $table->timestamps();
+            $table->timestamp('published_at')->nullable();
         });
     }
 
