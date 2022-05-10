@@ -1,3 +1,6 @@
+@extends('layout')
+
+@section('content')
 <h1>{{$heading}}</h1>
 
 @foreach($posts as $post)
@@ -9,3 +12,5 @@
     {{$post['desc']}}
 </p>
 @endforeach
+
+@endsection
