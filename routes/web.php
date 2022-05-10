@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,14 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//All Posts
 Route::get('/', function () {
-    return view('welcome');
+    return view('posts', [
+        'heading' => 'Latest Posts',
+        'posts' => Post::all()
+    ]);
 });
 
-Route::get('/posts/{id}', function($id) {
-    return response('Post ' . $id);
-})->where('id', '[0-9]+');
 
-Route::get('/search', function(Request $request){
-    return($request->name . ' ' . $request->city);
+//Single Post
+Route::get('/posts/{id}', function($id){
+    return view('post', [
+        'post' => Post::find($id)
+    ]);
 });
