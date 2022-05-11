@@ -5,7 +5,7 @@
 ><i class="fa-solid fa-arrow-left"></i> Back
 </a>
 <div class="mx-4">
-<div class="bg-gray-50 border border-gray-200 p-10 rounded">
+<x-card>
     <div
         class="flex flex-col items-center justify-center text-center"
     >
@@ -17,28 +17,9 @@
 
         <h3 class="text-2xl mb-2">{{$post->title}}</h3>
         <div class="text-xl font-bold mb-4">{{$post->company}}</div>
-        <ul class="flex">
-            <li
-                class="bg-black text-white rounded-xl px-3 py-1 mr-2"
-            >
-                <a href="#">Tag</a>
-            </li>
-            <li
-                class="bg-black text-white rounded-xl px-3 py-1 mr-2"
-            >
-                <a href="#">Tag</a>
-            </li>
-            <li
-                class="bg-black text-white rounded-xl px-3 py-1 mr-2"
-            >
-                <a href="#">Tag</a>
-            </li>
-            <li
-                class="bg-black text-white rounded-xl px-3 py-1 mr-2"
-            >
-                <a href="#">Tag</a>
-            </li>
-        </ul>
+
+        <x-post-tags :tagsCsv="$post->tags" />
+
         <div class="text-lg my-4">
             <i class="fa-solid fa-location-dot"></i>{{$post->location}}
         </div>
@@ -60,6 +41,6 @@
             </div>
         </div>
     </div>
-</div>
+</x-card>
 </div>
 @endsection
