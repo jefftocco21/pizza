@@ -9,9 +9,11 @@ class PostController extends Controller
 {
     //show all
     public function index(){
+        // dd(request('tag'));
         return view('posts.index', [
             'heading' => 'Latest Posts',
-            'posts' => Post::all()
+            'posts' => Post::latest()->filter(request(['tag']))
+            ->get() //same as all but sorted
         ]);
     }
 
