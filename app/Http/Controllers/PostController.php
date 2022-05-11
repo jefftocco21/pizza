@@ -12,7 +12,7 @@ class PostController extends Controller
         // dd(request('tag'));
         return view('posts.index', [
             'heading' => 'Latest Posts',
-            'posts' => Post::latest()->filter(request(['tag']))
+            'posts' => Post::latest()->filter(request(['tag', 'search']))
             ->get() //same as all but sorted
         ]);
     }

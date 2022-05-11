@@ -28,7 +28,7 @@
                 </h3>
                 <div class="text-lg space-y-6">
 
-                    {{$post->description}}
+                    {{$post->desc}}
                     <a
                         href="{{$post->website}}"
                         target="_blank"
