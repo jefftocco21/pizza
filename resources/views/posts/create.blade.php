@@ -21,6 +21,7 @@
                 type="text"
                 class="border border-gray-200 rounded p-2 w-full"
                 name="company"
+                value="{{old('company')}}"
             />
 
             @error('company')
@@ -36,6 +37,7 @@
                 type="text"
                 class="border border-gray-200 rounded p-2 w-full"
                 name="title"
+                value="{{old('title')}}"
             />
 
             @error('title')
@@ -51,6 +53,7 @@
                 type="text"
                 class="border border-gray-200 rounded p-2 w-full"
                 name="location"
+                value="{{old('location')}}"
             />
             @error('location')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -68,6 +71,7 @@
                 type="text"
                 class="border border-gray-200 rounded p-2 w-full"
                 name="website"
+                value="{{old('website')}}"
             />
             @error('website')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -82,6 +86,7 @@
                 type="text"
                 class="border border-gray-200 rounded p-2 w-full"
                 name="tags"
+                value="{{old('tags')}}"
             />
 
             @error('tags')
@@ -111,6 +116,7 @@
                 class="border border-gray-200 rounded p-2 w-full"
                 name="desc"
                 rows="10"
+                {{old('desc')}}
             ></textarea>
 
         @error('desc')
