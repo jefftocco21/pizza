@@ -21,6 +21,7 @@
                 crossorigin="anonymous"
                 referrerpolicy="no-referrer"
             />
+            <script src="//unpkg.com/alpinejs" defer></script>
             <script src="https://cdn.tailwindcss.com"></script>
         </head>
         <body class="mb-48">
@@ -52,5 +53,6 @@
 
             <a href="/posts/create" class="absolute top-1/3 right-10 bg-orange-400 text-white rounded-xl py-2 px-5 hover:bg-orange-500">Post</a>
         </footer>
+        <x-flash-message />
 </body>
 </html>
