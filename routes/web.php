@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 //All Posts
 Route::get('/', [PostController::class, 'index']);
 
+//Create Post Form
+Route::get('/posts/create', [PostController::class, 'create']);
 
 //Single Post
 Route::get('/posts/{post}', [PostController::class, 'show']);
