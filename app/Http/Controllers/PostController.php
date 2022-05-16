@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class PostController extends Controller
 {
@@ -27,5 +28,20 @@ class PostController extends Controller
     //post create
     public function create(){
         return view('posts.create');
+    }
+
+    //store post data
+    public function store(Request $request){
+        $fields = $request->validate([
+            'title' => 'required',
+            'company' => ['required', Rule::unique('posts','company')],
+            'location' => ['required'],
+            'tags' => ['required'],
+            'desc' => ['required']
+        ]);
+
+        Post::create($fields);
+
+        return redirect('/');
     }
 }

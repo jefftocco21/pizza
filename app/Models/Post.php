@@ -10,6 +10,8 @@ class Post extends Model
     use HasFactory;
     // public $timestamps = false;
 
+    protected $fillable = ['title', 'company','location', 'website', 'email', 'desc', 'tags'];
+
     public function scopeFilter($query, array $filters)
     {
         if($filters['tag'] ?? false){

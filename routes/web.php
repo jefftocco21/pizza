@@ -22,5 +22,8 @@ Route::get('/', [PostController::class, 'index']);
 //Create Post Form
 Route::get('/posts/create', [PostController::class, 'create']);
 
+//Store Post Data
+Route::post('/posts', [PostController::class, 'store']);
+
 //Single Post
 Route::get('/posts/{post}', [PostController::class, 'show']);

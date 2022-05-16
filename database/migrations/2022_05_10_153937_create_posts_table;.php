@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('tags');
             $table->string('company');
             $table->string('location');
-            $table->string('website');
+            $table->string('website')->nullable();
             $table->text('desc');
             $table->timestamps();
             $table->timestamp('published_at')->nullable();
