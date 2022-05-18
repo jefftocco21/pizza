@@ -29,7 +29,18 @@
                 <a href="/"
                     ><img class="w-24 ml-4" src="images/logo.png" alt="PHPizza" class="logo"
                 /></a>
+                @auth
                 <ul class="flex space-x-6 mr-6 text-lg">
+                    <li>
+                        <span class="font-bold">Welcome {{auth()->user()->name}}</span>
+                    </li>
+                    <li>
+                        <a href="/posts/manage" class="hover:text-laravel"
+                            ><i class=""></i>
+                            Manage</a
+                        >
+                    </li>
+                @else
                     <li>
                         <a href="/register" class="hover:text-laravel"
                             ><i class=""></i> Register</a
@@ -41,6 +52,7 @@
                             Login</a
                         >
                     </li>
+                @endauth
                 </ul>
             </nav>
             <main>
