@@ -40,6 +40,10 @@
             </div>
         </div>
     </x-card>
+
+    <x-card class="mt-4 pt-2 flex space-x-6">
+        <a href="/posts/{{$post->id}}/edit">Edit Post</a>
+    </x-card>
     </div>
 </x-layout>
 

@@ -44,4 +44,23 @@ class PostController extends Controller
 
         return redirect('/')->with('message', 'Post successfully created!');
     }
+
+    //edit form
+    public function edit(Post $post){
+        return view('posts.edit', ['post' => $post]);
+    }
+
+    public function update(Request $request, Post $post){
+        $fields = $request->validate([
+            'title' => 'required',
+            'company' => ['required'],
+            'location' => ['required'],
+            'tags' => ['required'],
+            'desc' => ['required']
+        ]);
+
+        $post->update($fields);
+
+        return back()->with('message', 'Post successfully updated!');
+    }
 }
