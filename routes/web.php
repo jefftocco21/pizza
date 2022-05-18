@@ -40,3 +40,6 @@ Route::get('/posts/{post}', [PostController::class, 'show']);
 
 //Registration Form
 Route::get('/register', [UserController::class, 'create']);
+
+//User Creation
+Route::post('/users', [UserController::class, 'store']);
