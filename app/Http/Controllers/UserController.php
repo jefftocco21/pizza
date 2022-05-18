@@ -20,7 +20,7 @@ class UserController extends Controller
             'password' => ['required', 'confirmed', 'min:6']
         ]);
 
-        //Hash
+        //Hash password
         $fields['password'] = bcrypt($fields['password']);
 
         //Create user
@@ -29,5 +29,15 @@ class UserController extends Controller
         auth()->login($user);
 
         return redirect('/')->with('message', 'User created and logged in.');
+    }
+
+    //Log out
+    public function logout(Request $request){
+        auth()->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/')->with('message', 'Successfully logged out.');
     }
 }

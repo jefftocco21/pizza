@@ -29,8 +29,8 @@
                 <a href="/"
                     ><img class="w-24 ml-4" src="images/logo.png" alt="PHPizza" class="logo"
                 /></a>
-                @auth
                 <ul class="flex space-x-6 mr-6 text-lg">
+                @auth
                     <li>
                         <span class="font-bold">Welcome {{auth()->user()->name}}</span>
                     </li>
@@ -39,6 +39,14 @@
                             ><i class=""></i>
                             Manage</a
                         >
+                    </li>
+                    <li>
+                        <form action="/logout" method="POST" class="inline">
+                            @csrf
+                            <button type="submit">
+                                Logout
+                            </button>
+                        </form>
                     </li>
                 @else
                     <li>
