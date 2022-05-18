@@ -14,7 +14,7 @@ class PostController extends Controller
         return view('posts.index', [
             'heading' => 'Latest Posts',
             'posts' => Post::latest()->filter(request(['tag', 'search']))
-            ->get() //same as all but sorted
+            ->paginate(8)
         ]);
     }
 

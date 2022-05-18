@@ -10,5 +10,9 @@
         <x-post-card :post="$post"/>
     @endforeach
     </div>
+
+    <div class="mt-6 p-4">
+        {{$posts->links()}}
+    </div>
 </x-layout>
 
