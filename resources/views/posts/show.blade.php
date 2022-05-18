@@ -42,7 +42,15 @@
     </x-card>
 
     <x-card class="mt-4 pt-2 flex space-x-6">
-        <a href="/posts/{{$post->id}}/edit">Edit Post</a>
+        <a href="/posts/{{$post->id}}/edit">
+            <i class="fa-solid fa-pencil"></i> Edit
+        </a>
+        <form method="POST" action="/posts/{{$post->id}}">
+            @csrf
+            @method('DELETE')
+            <button class="text-red-500"><i class="fa-solid fa-trash"></i>
+            Delete</button>
+        </form>
     </x-card>
     </div>
 </x-layout>

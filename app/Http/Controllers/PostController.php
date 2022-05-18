@@ -50,6 +50,7 @@ class PostController extends Controller
         return view('posts.edit', ['post' => $post]);
     }
 
+    //update post
     public function update(Request $request, Post $post){
         $fields = $request->validate([
             'title' => 'required',
@@ -62,5 +63,11 @@ class PostController extends Controller
         $post->update($fields);
 
         return back()->with('message', 'Post successfully updated!');
+    }
+
+    //delete list
+    public function destroy(Post $post){
+        $post->delete();
+        return redirect('/')->with('message', 'Post successfully deleted!');
     }
 }
