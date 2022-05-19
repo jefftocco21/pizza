@@ -54,6 +54,12 @@ class PostController extends Controller
 
     //update post
     public function update(Request $request, Post $post){
+
+        //Make sure logged in user is owner
+        if($post->user_id != auth()->id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
         $fields = $request->validate([
             'title' => 'required',
             'company' => ['required'],
@@ -69,7 +75,16 @@ class PostController extends Controller
 
     //delete list
     public function destroy(Post $post){
+        //Make sure logged in user is owner
+        if($post->user_id != auth()->id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
         $post->delete();
         return redirect('/')->with('message', 'Post successfully deleted!');
+    }
+
+    public function manage(){
+        return view('posts.manage', ['posts' => auth()->user()->posts()->get()]);
     }
 }
