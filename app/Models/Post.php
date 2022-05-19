@@ -11,7 +11,7 @@ class Post extends Model
     use HasFactory;
     // public $timestamps = false;
 
-    protected $fillable = ['title', 'company','location', 'website', 'email', 'desc', 'tags'];
+    protected $fillable = ['title', 'company','location', 'website', 'email', 'desc', 'tags', 'user_id'];
 
     public function scopeFilter($query, array $filters)
     {

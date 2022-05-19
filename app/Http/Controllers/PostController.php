@@ -40,6 +40,8 @@ class PostController extends Controller
             'desc' => ['required']
         ]);
 
+        $fields['user_id'] = auth()->id();
+
         Post::create($fields);
 
         return redirect('/')->with('message', 'Post successfully created!');
