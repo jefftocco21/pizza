@@ -21,34 +21,34 @@ use App\Http\Controllers\UserController;
 Route::get('/', [PostController::class, 'index']);
 
 //Create Post Form
-Route::get('/posts/create', [PostController::class, 'create']);
+Route::get('/posts/create', [PostController::class, 'create'])->middleware('auth');
 
 //Store Post Data
-Route::post('/posts', [PostController::class, 'store']);
+Route::post('/posts', [PostController::class, 'store'])->middleware('auth');
 
 //Show Form to Edit
-Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
+Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->middleware('auth');
 
 //Update put request
-Route::put('/posts/{post}', [PostController::class, 'update']);
+Route::put('/posts/{post}', [PostController::class, 'update'])->middleware('auth');
 
 //Delete Post
-Route::delete('/posts/{post}', [PostController::class, 'destroy']);
+Route::delete('/posts/{post}', [PostController::class, 'destroy'])->middleware('auth');
 
 //Single Post
 Route::get('/posts/{post}', [PostController::class, 'show']);
 
 //Registration Form
-Route::get('/register', [UserController::class, 'create']);
+Route::get('/register', [UserController::class, 'create'])->middleware('guest');
 
 //User Creation
 Route::post('/users', [UserController::class, 'store']);
 
 //Log User out
-Route::post('/logout', [UserController::class, 'logout']);
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 
 //Show Login Form
-Route::get('/login', [UserController::class, 'login']);
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 
 //Login User
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
